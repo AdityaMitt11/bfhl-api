@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-// Replace with your details
 const FULL_NAME = "aditya_mittal";
 const DOB = "11042004"; // ddmmyyyy
 const EMAIL = "adityamittal.work2004@gmail.com";
@@ -19,8 +18,6 @@ function isAlphabet(str) {
 function getConcatString(alphabets) {
   let combined = alphabets.join("");
   let reversed = combined.split("").reverse().join("");
-
-  // alternating caps
   let result = "";
   for (let i = 0; i < reversed.length; i++) {
     result += i % 2 === 0 ? reversed[i].toUpperCase() : reversed[i].toLowerCase();
@@ -76,7 +73,7 @@ app.post("/bfhl", (req, res) => {
   }
 });
 
-// ✅ For local testing (node index.js)
+
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
@@ -84,5 +81,4 @@ if (require.main === module) {
   });
 }
 
-// ✅ For Vercel deployment (export the app)
 module.exports = app;
